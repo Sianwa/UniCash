@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "212643275398",
+    "firebase_url": "https://unicash-39104.firebaseio.com",
+    "project_id": "unicash-39104",
+    "storage_bucket": "unicash-39104.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212643275398:android:2402e143be55dfbb",
+        "android_client_info": {
+          "package_name": "com.example.unicash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212643275398-lu3ak8g3spvbgim9u13cui896c4nbt9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUH3FNpUcjmV7eS2ZIzS7U77o60W0Ba1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212643275398-lu3ak8g3spvbgim9u13cui896c4nbt9s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

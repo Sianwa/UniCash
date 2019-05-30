@@ -11,8 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CreateAccount"></activity>
         <activity android:name=".Login" />
-        <activity android:name=".SplashScreen" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

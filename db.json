@@ -1,9 +1,9 @@
 {
-  "Expenses" : [  {
-    "Category" : "Equipment",
-    "Date" : "monday"
-  }, {
-    "Category" : "Advertising",
-    "Date" : "monday"
-  } ]
+  "Expenses" : {
+    "01" : {
+      "Amount" : "Five Hundred",
+      "Category" : "Equipment",
+      "Date" : "Monday"
+    }
+  }
 }

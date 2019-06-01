@@ -7,8 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.LinkedList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerview;
@@ -21,32 +28,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        for (int i = 0; i < 20; i++) {
-            mExpenseList.addLast("Word " + mCount++);
-            Log.d("WordList", mExpenseList.getLast());
-        }
-        // Get a handle to the RecyclerView.
-        mRecyclerview = (RecyclerView) findViewById(R.id.recyclerview);
-        // Create an adapter and supply the data to be displayed.
+        Retrofit retrofit =new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Api api = retrofit.create(Api.class);
+        Call<ExpenseModel> call =api.getExpense();
+
+        call.enqueue(new Callback<ExpenseModel>() {
+            @Override
+            public void onResponse(Call<ExpenseModel>call, Response<ExpenseModel> response) {
+               Log.d("ResponseString",response.body().toString());
+
+                // TODO set adapter to display info in recyclerview
+
+                Toast.makeText(getApplicationContext(),"Its still working",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<ExpenseModel> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+        mRecyclerview = findViewById(R.id.recyclerview);
         mAdapter = new ExpenseAdapter(this, mExpenseList);
-        // Connect the adapter with the RecyclerView.
         mRecyclerview.setAdapter(mAdapter);
-        // Give the RecyclerView a default layout manager.
         mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
 
-        // Add a floating action click handler for creating new entries.
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                int wordListSize = mExpenseList.size();
-                // Add a new word to the end of the wordList.
-                mExpenseList.addLast("+ Word " + wordListSize);
-                // Notify the adapter, that the data has changed so it can
-                // update the RecyclerView to display the data.
-                mRecyclerview.getAdapter().notifyItemInserted(wordListSize);
-                // Scroll to the bottom.
-                mRecyclerview.smoothScrollToPosition(wordListSize);
+               //TODO intent to go to add new record page
             }
         });
 

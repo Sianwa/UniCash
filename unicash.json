@@ -1,0 +1,11 @@
+{
+  "Expenses" : [ null, {
+    "Amount" : "40000",
+    "Category" : "Equipment",
+    "Date" : "06-01-2019"
+  }, {
+    "Amount" : "5000",
+    "Category" : "Advertising",
+    "Date" : "06-01-2019"
+  } ]
+}

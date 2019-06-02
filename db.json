@@ -3,7 +3,7 @@
     "01" : {
       "Amount" : "Five Hundred",
       "Category" : "Equipment",
-      "Date" : "Monday"
+      "Description" : "Bought lawn-mower"
     }
   }
 }

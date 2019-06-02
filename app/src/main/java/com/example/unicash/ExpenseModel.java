@@ -2,20 +2,23 @@ package com.example.unicash;
 
 public class ExpenseModel {
     private String Category;
-    private String Date;
+    private String Description;
     private String Amount;
 
-    public ExpenseModel(String category, String date, String amount) {
+
+    public ExpenseModel(String category, String description, String amount) {
         this.Category =category;
-        this.Date = date;
+        this.Description= description;
         this.Amount = amount;
     }
+
     public String getCategory() {
         return Category;
     }
 
-    public String getDate() {
-        return Date;
+
+    public String getDescription() {
+        return Description;
     }
 
     public String getAmount() {

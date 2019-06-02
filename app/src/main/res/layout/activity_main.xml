@@ -23,6 +23,7 @@
         android:layout_marginBottom="8dp"
         android:clickable="true"
         android:src="@drawable/ic_add_24dp"
+        app:backgroundTint="#008577"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerview"
         app:layout_constraintEnd_toEndOf="@+id/recyclerview"
         app:layout_constraintHorizontal_bias="0.976"

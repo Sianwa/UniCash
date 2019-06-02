@@ -1,9 +1,14 @@
 {
-  "Expenses" : {
-    "01" : {
+  "Expenses" : [
+     {
       "Amount" : "Five Hundred",
       "Category" : "Equipment",
       "Description" : "Bought lawn-mower"
+    },
+     {
+      "Amount" : "Two Hundred",
+      "Category" : "Equipment",
+      "Description" : "Bought pruning shears"
     }
-  }
+  ]
 }

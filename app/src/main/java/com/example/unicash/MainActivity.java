@@ -1,5 +1,6 @@
 package com.example.unicash;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,12 +25,33 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerview;
     private ExpenseAdapter mAdapter;
     private ArrayList<ExpenseModel> mExpenseList ;
+    Button mExp,mRem;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mExp= findViewById(R.id.ViewExpenses);
+        mExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ExpensesAct.class);
+                startActivity(intent);
+            }
+        });
+
+        mRem =findViewById(R.id.ViewReminders);
+        mRem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,RemindersAct.class);
+                startActivity(intent);
+            }
+        });
+
+
         mRecyclerview = findViewById(R.id.recyclerview);
         mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerview.setHasFixedSize(true);
@@ -39,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                //TODO intent to go to add new record page
+                Intent intent = new Intent(MainActivity.this,NewRecord.class);
+                startActivity(intent);
             }
         });
 
@@ -56,16 +81,12 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<JSONResponse>() {
             @Override
             public void onResponse(Call<JSONResponse>call, Response<JSONResponse> response) {
-/*
 
-*/
-
-  if(response.isSuccessful()){
-    JSONResponse jsonResponse= response.body();
-      //JSONResponse jsonResponse = response.body();
-      mExpenseList= new ArrayList<>(Arrays.asList(jsonResponse.getExpenses()));
-      mAdapter = new ExpenseAdapter(mExpenseList);
-      mRecyclerview.setAdapter(mAdapter);
+             if(response.isSuccessful()){
+                    JSONResponse jsonResponse= response.body();
+                     mExpenseList= new ArrayList<>(Arrays.asList(jsonResponse.getExpenses()));
+                     mAdapter = new ExpenseAdapter(mExpenseList);
+                     mRecyclerview.setAdapter(mAdapter);
     Toast.makeText(getApplicationContext(),"Its still working",Toast.LENGTH_LONG).show();
 
 }

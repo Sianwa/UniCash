@@ -1,103 +1,49 @@
 package com.example.unicash;
 
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.TabItem;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.JsonReader;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView mRecyclerview;
-    private ExpenseAdapter mAdapter;
-    private ArrayList<ExpenseModel> mExpenseList ;
-    Button mExp,mRem;
 
-
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mExp= findViewById(R.id.ViewExpenses);
-        mExp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ExpensesAct.class);
-                startActivity(intent);
-            }
-        });
+        //remove shadow from action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setElevation(0);
 
-        mRem =findViewById(R.id.ViewReminders);
-        mRem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,RemindersAct.class);
-                startActivity(intent);
-            }
-        });
+        //tablayout
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        TabItem tabExp=findViewById(R.id.expenses);
+        TabItem tabRem=findViewById(R.id.reminders);
+        TabItem tabAnalytics=findViewById(R.id.Analytics);
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
 
+        //fragments
+        adapter.AddFragmnet(new ExpFragment(),"Expenses");
+        adapter.AddFragmnet(new RemFragment(),"Reminders");
+        adapter.AddFragmnet(new AnalytFragment(),"Analytics");
 
-        mRecyclerview = findViewById(R.id.recyclerview);
-        mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerview.setHasFixedSize(true);
-        loadJson();
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-               //TODO intent to go to add new record page
-                Intent intent = new Intent(MainActivity.this,NewRecord.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
-    private void loadJson() {
-        Retrofit retrofit =new Retrofit.Builder()
-                .baseUrl(Api.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        Api api = retrofit.create(Api.class);
-        Call<JSONResponse> call =api.getExpense();
-
-        call.enqueue(new Callback<JSONResponse>() {
-            @Override
-            public void onResponse(Call<JSONResponse>call, Response<JSONResponse> response) {
-
-             if(response.isSuccessful()){
-                    JSONResponse jsonResponse= response.body();
-                     mExpenseList= new ArrayList<>(Arrays.asList(jsonResponse.getExpenses()));
-                     mAdapter = new ExpenseAdapter(mExpenseList);
-                     mRecyclerview.setAdapter(mAdapter);
-    Toast.makeText(getApplicationContext(),"Its still working",Toast.LENGTH_LONG).show();
-
-}
-           }
-
-            @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
-                Log.d("Error",t.getMessage());
-            }
-        });
+ //prevents going back to login page
+    @Override
+    public void onBackPressed() {
 
     }
+
 }

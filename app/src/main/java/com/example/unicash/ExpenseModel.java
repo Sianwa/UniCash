@@ -1,27 +1,33 @@
 package com.example.unicash;
 
 public class ExpenseModel {
-    private String Category;
-    private String Description;
-    private String Amount;
+     String category,description,amount;
 
+    public ExpenseModel(){
 
-    public ExpenseModel(String category, String description, String amount) {
-        this.Category =category;
-        this.Description= description;
-        this.Amount = amount;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
-
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public String getAmount() {
-        return Amount;
+        return amount;
     }
 }

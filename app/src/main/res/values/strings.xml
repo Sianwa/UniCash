@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UniCash</string>
+    <string name="title_activity_reminder">ReminderActivity</string>
+    <string name="title_activity_reminder_list">ReminderList</string>
+    <string name="title_activity_reminder_details">ReminderDetails</string>
+    <string name="title_activity_reminder_list_adapter">ReminderListAdapter</string>
 </resources>

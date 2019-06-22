@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RemindersAct">
+    tools:context=".RemindersAct"
+    android:fitsSystemWindows="true">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:expandedTitleTextAppearance="@style/Widget.AppCompat.ActionBar.TabText"
+            app:contentScrim="@color/colorPrimary">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolRem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/reminderText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="Remind me to ..."
+                android:textSize="30dp"
+                android:inputType="text"
+                />
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

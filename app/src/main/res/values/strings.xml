@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">UniCash</string>
-
+    <string name="choose_datetime">Choose the date and time</string>
+    <string name="date_button">Date</string>
+    <string name="time_button">Time</string>
+    <string name="time_picker">timePicker</string>
+    <string name="date_picker">datePicker</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date">Date:</string>
+    <string name="time">Time:</string>
+
 </resources>

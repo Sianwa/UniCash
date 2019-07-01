@@ -5,10 +5,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 public class RemindersAct extends AppCompatActivity {
+private TextView textView1,textView2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,10 @@ public class RemindersAct extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setElevation(0);
+
+        //views
+        textView1=findViewById(R.id.date);
+        textView2=findViewById(R.id.time);
 
         //back navigation
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,10 +51,11 @@ public class RemindersAct extends AppCompatActivity {
         String day_string = Integer.toString(day);
         String year_string = Integer.toString(year);
 
-        String dateMessage = (month_string + "/" +
-                day_string + "/" + year_string);
+        String dateMessage = (day_string + "/" +
+                month_string + "/" + year_string);
         Toast.makeText(this, getString(R.string.date) + dateMessage,
                 Toast.LENGTH_SHORT).show();
+        textView1.setText(dateMessage);
 
 
     }
@@ -58,6 +67,8 @@ public class RemindersAct extends AppCompatActivity {
 
         Toast.makeText(this, getString(R.string.time) + timeMessage,
                 Toast.LENGTH_SHORT).show();
+
+        textView2.setText(timeMessage);
 
     }
 

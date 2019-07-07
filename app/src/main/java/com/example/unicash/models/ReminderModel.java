@@ -1,4 +1,4 @@
-package com.example.unicash;
+package com.example.unicash.models;
 
 public class ReminderModel {
     String title,date,description;

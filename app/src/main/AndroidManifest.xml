@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.unicash">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,12 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RemindersAct"></activity>
+        <activity
+            android:name=".onboarding.Onboarding"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ExpenseAct" />
+        <activity android:name=".RemindersAct" />
         <activity
             android:name=".CreateAccount"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".Login"
+            android:name=".UserLogin"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity
@@ -28,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".notifications.NotificationReceiver" />
     </application>
 
 </manifest>

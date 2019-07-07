@@ -1,4 +1,4 @@
-package com.example.unicash;
+package com.example.unicash.models;
 
 public class ExpenseModel {
      String category,description,amount;

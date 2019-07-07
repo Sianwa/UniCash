@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.unicash.models.ExpenseModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -43,8 +44,8 @@ public class ExpFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //TODO intent to go to add new record page
-
+                Intent intent = new Intent(getContext(),ExpenseAct.class);
+                startActivity(intent);
             }
         });
 

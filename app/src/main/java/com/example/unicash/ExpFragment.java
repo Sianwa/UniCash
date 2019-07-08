@@ -61,7 +61,7 @@ public class ExpFragment extends Fragment {
                 new FirebaseRecyclerAdapter<ExpenseModel, ExpFragment.Viewholders>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull ExpFragment.Viewholders holder, int position, @NonNull ExpenseModel model) {
-                        holder.mAmount.setText(model.getAmount());
+                        holder.mAmount.setText(String.valueOf(model.getAmount()));
                         holder.mCategory.setText(model.getCategory());
                         holder.mDescription.setText(model.getDescription());
                     }

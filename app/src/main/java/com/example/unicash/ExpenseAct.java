@@ -129,18 +129,17 @@ public class ExpenseAct extends AppCompatActivity {
 
   public void newExpense(){
        String description=mDescription.getText().toString();
+       String date=mDate.getText().toString();
        String category=selectedCategory;
        String amount=mAmount.getText().toString();
+       int am =Integer.parseInt(amount);
 
       if(TextUtils.isEmpty(description)) {
           Toast.makeText(this, "Please enter username", Toast.LENGTH_LONG).show();
           return;
       }
-      if(TextUtils.isEmpty(amount)) {
-          Toast.makeText(this, "Please enter details", Toast.LENGTH_LONG).show();
-          return;
-      }
-        newExp = new NewExp(description,category,amount);
+
+        newExp = new NewExp(description,date,category,am);
       Call<ExpenseModel>call =api.newExpense(newExp);
       call.enqueue(new Callback<ExpenseModel>() {
           @Override

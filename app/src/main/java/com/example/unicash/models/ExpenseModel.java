@@ -1,7 +1,8 @@
 package com.example.unicash.models;
 
 public class ExpenseModel {
-     String category,description,amount;
+     String category,description;
+     int amount;
 
     public ExpenseModel(){
 
@@ -15,7 +16,7 @@ public class ExpenseModel {
         this.description = description;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
@@ -27,7 +28,7 @@ public class ExpenseModel {
         return description;
     }
 
-    public String getAmount() {
+    public int getAmount() {
         return amount;
     }
 }

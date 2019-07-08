@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.unicash.models.ExpenseModel;
-import com.example.unicash.models.NewExp;;
+import com.example.unicash.models.NewExp;
 import com.example.unicash.network.Api;
 
 import java.util.Calendar;

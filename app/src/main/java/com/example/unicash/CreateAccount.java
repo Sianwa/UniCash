@@ -15,7 +15,6 @@ import com.example.unicash.models.SignUp;
 import com.example.unicash.models.User;
 import com.example.unicash.network.Api;
 import com.example.unicash.onboarding.Onboarding;
-import com.google.firebase.auth.FirebaseAuth;
 
 import retrofit2.Call;
 import retrofit2.Callback;

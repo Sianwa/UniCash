@@ -71,7 +71,7 @@ public class AnalytFragment extends Fragment {
 
 
                     pieEntries.add(new PieEntry(pointValue.getAmount(), pointValue.getCategory()));
-                    barEntries.add(new BarEntry((float)pointValue.getIndex(), (float) pointValue.getAmount()));
+                    barEntries.add(new BarEntry((float)pointValue.getIndexVal(), (float) pointValue.getAmount()));
                     xAxisLabel.add(pointValue.getCategory());
 
 

@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    >
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/midpage_height"
+        android:layout_gravity="center"
+        android:elevation="100dp"
+        android:paddingBottom="@dimen/padding_size"
+        app:cardBackgroundColor="#D1EBE4" tools:targetApi="lollipop">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:paddingTop="@dimen/padding_size"
+            android:paddingRight="@dimen/padding_size"
+            android:paddingLeft="@dimen/padding_size"
+            android:paddingBottom="@dimen/padding_size">
+
+        </com.github.mikephil.charting.charts.PieChart>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:elevation="100dp"
+        android:paddingTop="@dimen/padding_size"
+        android:layout_below="@id/card_view" tools:targetApi="lollipop">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <!-- Add a Horizontal Bar Chart using MPAndroidChart library -->
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/horizontalbar_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+</RelativeLayout>

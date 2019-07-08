@@ -1,6 +1,7 @@
 package com.example.unicash;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -96,6 +97,10 @@ public class UserLogin extends AppCompatActivity {
                 if (response.isSuccessful()){
                     //Toast.makeText(UserLogin.this,response.body().getToken(),Toast.LENGTH_LONG).show();
                     token=response.body().getToken();
+
+                    //store token in shared preferences
+                    SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+                    preferences.edit().putString("token", token).commit();
 
                     //signin user with custom token
                      startSignIn();

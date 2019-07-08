@@ -41,12 +41,19 @@ public class SliderAdapter extends PagerAdapter {
     };
 
     public String[] slide_descriptions ={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            "No more paper hustle,book keeping is now digital",
+            "See where all your money is going and choose the right way forward",
+            "Work together with your employees to track all expenses",
+            "Get started with UniCash and manage your money well"
 
     };
+    public String[] slide_buttons={
+            "NEXT",
+            "NEXT",
+            "NEXT",
+            "GET STARTED"
+    };
+
     @Override
     public int getCount() {
         return slide_headings.length;
@@ -64,11 +71,13 @@ public class SliderAdapter extends PagerAdapter {
         ImageView imageView = view.findViewById(R.id.imageView);
         TextView textView1 = view.findViewById(R.id.heading);
         TextView textView2 = view.findViewById(R.id.body);
+        Button button=view.findViewById(R.id.next);
 
 
         imageView.setImageResource(slide_images[position]);
         textView1.setText(slide_headings[position]);
         textView2.setText(slide_descriptions[position]);
+        button.setText(slide_buttons[position]);
 
         container.addView(view);
 

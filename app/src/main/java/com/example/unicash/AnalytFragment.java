@@ -53,7 +53,7 @@ public class AnalytFragment extends Fragment {
 
         //send query to firebasedb
         database = FirebaseDatabase.getInstance();
-        reference= database.getReference().child("Expenses");
+        reference= database.getReference().child("Totals");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
@@ -102,7 +102,7 @@ public class AnalytFragment extends Fragment {
                     XAxis.setDrawAxisLine(true);
 
                     YAxis YaxisL = horizontalBarChart.getAxisLeft();
-                    YaxisL.setAxisMinimum(1000f);
+                    YaxisL.setAxisMinimum(10f);
                     YaxisL.setAxisMaximum(100000f);
                     YaxisL.setEnabled(false);
 

@@ -14,7 +14,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface Api {
-    String BASE_URL = "http://192.168.0.35:8080";
+    String BASE_URL = "http://192.168.43.166:8080";
 
     @GET("db")
     Call<JSONResponse> getExpense();

@@ -26,6 +26,8 @@ import com.example.unicash.models.NewRem;
 import com.example.unicash.models.ReminderModel;
 import com.example.unicash.network.Api;
 import com.example.unicash.notifications.NotificationReceiver;
+import com.google.firebase.auth.FirebaseUser;
+
 
 import java.util.Calendar;
 
@@ -39,6 +41,7 @@ public class RemindersAct extends AppCompatActivity {
 private TextView mDate, mTime;
 private Button saveButton;
 private EditText mTitle,mDesc;
+private FirebaseUser user;
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(Api.BASE_URL)
@@ -79,7 +82,7 @@ private EditText mTitle,mDesc;
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               newReminder();
+                newReminder();
 
             }
         });

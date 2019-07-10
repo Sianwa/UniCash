@@ -59,11 +59,11 @@ public class UserLogin extends AppCompatActivity {
         _btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent intent = new Intent(UserLogin.this, MainActivity.class);
                 startActivity(intent);
-                */
-                login();
+
+                //login();
             }
         });
 
@@ -77,6 +77,7 @@ public class UserLogin extends AppCompatActivity {
     }
 
     private static String token;
+    private static String errMsg;
     private void login() {
         String email=_txtemail.getText().toString();
         String password=_txtpass.getText().toString();
@@ -106,6 +107,9 @@ public class UserLogin extends AppCompatActivity {
 
                     //signin user with custom token
                      startSignIn();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Auth failed",Toast.LENGTH_LONG).show();
                 }
             }
 
